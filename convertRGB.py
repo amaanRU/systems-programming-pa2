@@ -35,6 +35,7 @@ def load_library():
         print(f"Error loading library: {e}")
         exit(1)
 
+# clamp helper function
 def clamp(value, minimum_value=0, maximum_value=255):
           return min(max(value, minimum_value), maximum_value)
 

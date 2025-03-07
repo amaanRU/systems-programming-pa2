@@ -6,6 +6,17 @@ import cv2
 import time
 from PIL import Image
 
+<<<<<<< HEAD
+=======
+
+"""
+NOTES
+
+im him.
+
+"""
+
+>>>>>>> 8cbee78 (fire emoji)
 # Run using the following command:
 # python convertRGB_YCbCr.py -i input.jpg -o output.jpg -e 1
 
@@ -27,6 +38,12 @@ def load_library():
         print(f"Error loading library: {e}")
         exit(1)
 
+<<<<<<< HEAD
+=======
+def clamp(value, minimum_value=0, maximum_value=255):
+          return min(max(value, minimum_value), maximum_value)
+
+>>>>>>> 8cbee78 (fire emoji)
 # this code Python version of the conversion 
 def convert_RGB_to_YCbCr(rgb_pixels, width, height):
     ycc_pixels = bytearray(width * height * 3)
@@ -35,7 +52,21 @@ def convert_RGB_to_YCbCr(rgb_pixels, width, height):
 
     # Your code goes here.
     # do not use any libraries. 
+<<<<<<< HEAD
     
+=======
+
+    for i in range(0, len(rgb_pixels), 3):
+        r, g, b = rgb_pixels[i], rgb_pixels[i + 1], rgb_pixels[i + 2]
+
+        # given formulas
+        y = round(0.299 * r + 0.587 * g + 0.114 * b)
+        cb = round(128 + (-0.168736 * r - 0.331264 * g + 0.5 * b))
+        cr = round(128 + (0.5 * r - 0.418688 * g - 0.081312 * b)) 
+        ycc_pixels[i:i+3] = clamp(y), clamp(cb), clamp(cr)
+        # i love python
+
+>>>>>>> 8cbee78 (fire emoji)
     return ycc_pixels
 
 def load_image_convert_to_RGB(image_path):
@@ -128,4 +159,8 @@ def main():
     save_grayscale_image(ycc_ctypes[::3], width, height, args.output)
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     main()
+=======
+    main()
+>>>>>>> 8cbee78 (fire emoji)

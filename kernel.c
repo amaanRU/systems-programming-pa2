@@ -37,37 +37,6 @@ void convert_to_YCrCb(unsigned char *rgb_pixels, unsigned char *ycc_pixels, int 
         //YCrCb values
         //GIVEN FORMULA - > DECLARE r g b 
         double y = round(0.299 * r + 0.587 * g + 0.114 * b);
-<<<<<<< HEAD
-        double Cb = round(128 + (-0.168736 * r - 0.331264 * g + 0.5 * b));
-        double Cr = round(128 + (0.5 * r - 0.418688 * g - 0.081312 * b));
-
-        //clamping
-   /*     if(y < 0){
-            y = 0;
-        }
-        if(y > 225){
-            y = 225;
-        }
-
-        if(Cr < 0){
-            Cr = 0;
-        }
-        if(Cr > 225){
-            Cr = 225;
-        }
-
-        if(Cb < 0){
-            Cb = 0;
-        }
-        if(Cb > 225){
-            Cb = 225;
-        }*/
-
-        //alternatively
-        y = fmax(0, fmin(255,y));
-        Cb = fmax(0, fmin(255,Cb));
-        Cr = fmax(0, fmin(255,Cr));
-=======
         double cb = round(128 + (-0.168736 * r - 0.331264 * g + 0.5 * b));
         double cr = round(128 + (0.5 * r - 0.418688 * g - 0.081312 * b));
 
@@ -75,18 +44,12 @@ void convert_to_YCrCb(unsigned char *rgb_pixels, unsigned char *ycc_pixels, int 
         y = fmax(0, fmin(255,y));
         cb = fmax(0, fmin(255,cb));
         cr = fmax(0, fmin(255,cr));
->>>>>>> 8cbee78 (fire emoji)
 
         
         //converted values to the array 
         ycc_pixels[byte] = (unsigned char)y;
-<<<<<<< HEAD
-        ycc_pixels[byte + 1] = (unsigned char)Cb;
-        ycc_pixels[byte + 2] = (unsigned char)Cr;
-=======
         ycc_pixels[byte + 1] = (unsigned char)cb;
         ycc_pixels[byte + 2] = (unsigned char)cr;
->>>>>>> 8cbee78 (fire emoji)
     }
 
 }
